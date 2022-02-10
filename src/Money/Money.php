@@ -11,8 +11,9 @@ interface Money extends Stringable
     /**
      * Manually create a new monetary value.
      *
-     * @param int|string $amount The amount of money. You should omit the decimal point from this amount. Eg: '10.00' would be '1000'.
-     * @param string|null $currency The ISO currency code to use. If you do not provide a value, the default currency defined in the mula config file will be used.
+     * @param  int|string  $amount  The amount of money. You should omit the decimal point from this amount. Eg: '10.00' would be '1000'.
+     * @param  string|null  $currency  The ISO currency code to use. If you do not provide a value, the default currency defined in the mula config file will be used.
+     *
      * @throws UnreadableMonetaryValue
      */
     public function create($amount, $currency = null): Money;
@@ -20,8 +21,9 @@ interface Money extends Stringable
     /**
      * Parse a monetary string. This is useful for transforming user input into a Money object.
      *
-     * @param int|float|string $amount The amount of money. The format required depends on the money driver you are using.
-     * @param string|null $currency The ISO currency code to use. Some parsers, such as the PhpMoney international parser, do not require this as it can be calculated based on the given amount.
+     * @param  int|float|string  $amount  The amount of money. The format required depends on the money driver you are using.
+     * @param  string|null  $currency  The ISO currency code to use. Some parsers, such as the PhpMoney international parser, do not require this as it can be calculated based on the given amount.
+     *
      * @throws UnreadableMonetaryValue
      */
     public function parse($amount, $currency = null): Money;
@@ -57,7 +59,7 @@ interface Money extends Stringable
     public function isLessThanOrEqualTo(...$money): bool;
 
     /**
-     * @param int|array|Collection $allocation
+     * @param  int|array|Collection  $allocation
      */
     public function split($allocation): Collection;
 
